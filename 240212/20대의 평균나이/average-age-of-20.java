@@ -8,7 +8,7 @@ public class Main {
 
         while(true){
             int age = sc.nextInt();
-            if (age>=30) {
+            if (age<=10 || age>=30) {
                 System.out.printf("%.2f", (double)sum/cnt);
                 break;
             }
