@@ -6,23 +6,21 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        for(int i=0; i<2*n-1; i++){
-            for(int j=0; j<2*n-1; j++){
-                if(i==0 || i==2*n-2){
-                    if(j==0 || j==2*n-2){
-                        System.out.print(" ");
-                        continue;
-                    }
-                }
-                if(i%2==0){
-                    if(j%2==0) System.out.print("*");
-                    else System.out.print(" ");
-                    
-                } else {
-                    if(j%2!=0) System.out.print("*");
-                    else System.out.print(" ");
-                }
-                
+        for(int i=1; i<=n; i++){
+            for(int j=0; j<n-i; j++){
+                System.out.print(" ");
+            }
+            for(int j=0; j<i; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for(int i=n-1; i>0; i--){
+            for(int j=0; j<n-i; j++){
+                System.out.print(" ");
+            }
+            for(int j=0; j<i; j++){
+                System.out.print("* ");
             }
             System.out.println();
         }
