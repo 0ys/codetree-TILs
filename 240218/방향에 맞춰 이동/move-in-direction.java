@@ -2,9 +2,6 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int[] distance;
-    static int[] direction;
-
     // (1,0)(0,-1)(-1,0)(0,1) E S W N
     static int[] dx = new int[]{1, 0, -1, 0};
     static int[] dy = new int[]{0, -1, 0, 1};
@@ -16,27 +13,23 @@ public class Main {
         StringTokenizer st;
 
         int N = Integer.parseInt(br.readLine());
-        distance = new int[N];
-        direction = new int[N];
+        int distance=0, direction=0, x=0, y=0;
 
         for(int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine());
             String d = st.nextToken();
             switch(d){
-                case "E": direction[i] = 0; break;
-                case "S": direction[i] = 1; break;
-                case "W": direction[i] = 2; break;
-                case "N": direction[i] = 3; break;
+                case "E": direction = 0; break;
+                case "S": direction = 1; break;
+                case "W": direction = 2; break;
+                case "N": direction = 3; break;
             }
-            distance[i] = Integer.parseInt(st.nextToken());
+            distance = Integer.parseInt(st.nextToken());
             // System.out.println(direction[i]+" "+distance[i]);
+            x += dx[direction]*distance;
+            y += dy[direction]*distance;
         }
 
-        int x=0, y=0;
-        for(int i=0; i<N; i++){
-            x += dx[direction[i]]*distance[i];
-            y += dy[direction[i]]*distance[i];
-        }
         bw.write(x+" "+y);
 
         br.close();
