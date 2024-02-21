@@ -6,16 +6,12 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        for(int i=1; i<=n; i++){
-            int a = 1;
-            for(int j=n-i; j>=0; j--){
-                System.out.print(i+" * "+a+" = "+i*a++);
-                if(j==0){
-                    System.out.println();
-                } else {
-                    System.out.print(" / ");
-                }
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= n - i + 1; j++) {
+                System.out.print(i + " * " + j + " = " + (i * j));
+                if(j != (n - i + 1)) System.out.print(" / ");
             }
+            System.out.println();
         }
     }
 }
