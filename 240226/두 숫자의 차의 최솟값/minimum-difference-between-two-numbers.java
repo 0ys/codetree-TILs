@@ -11,7 +11,6 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        arr[n] = 101;
         int min = 101;
         for(int i=0; i<n; i ++){
             if(min>arr[i+1]-arr[i]){
