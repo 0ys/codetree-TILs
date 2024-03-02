@@ -2,52 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
+
+        // n을 입력받습니다.
         int n = sc.nextInt();
 
-        int[][] arr = new int[n][n];
-        int cnt=1;
+        // 2차원 배열을 구현합니다.
+        int[][] arr = new int[10][10];
 
-        if(n%2==0){
-            for(int i=n-1; i>=0; i--){
-                if(i%2==0){
-                    for(int j=0; j<n; j++){
-                        arr[j][i] = cnt;
-                        cnt++;
-                    }
-
-                } else {
-                    for(int j=n-1; j>=0; j--){
-                        arr[j][i] = cnt;
-                        cnt++;
-                    }
-
+        // 격자를 채워줍니다.
+        int count = 1;
+        for(int col = n - 1; col >= 0; col--) {
+            if ((n - 1 - col) % 2 == 0){
+                // 이 케이스에는 아래에서 위로 값을 채워줍니다.
+                for(int row = n - 1; row >= 0; row--){
+                    arr[row][col] = count;
+                    count++;
                 }
             }
-        }else {
-            for(int i=n-1; i>=0; i--){
-                if(i%2==1){
-                    for(int j=0; j<n; j++){
-                        arr[j][i] = cnt;
-                        cnt++;
-                    }
-
-                } else {
-                    for(int j=n-1; j>=0; j--){
-                        arr[j][i] = cnt;
-                        cnt++;
-                    }
-
+            else {
+                // 이 케이스에는 위에서 아래로 값을 채워줍니다.
+                for(int row = 0; row < n; row++){
+                    arr[row][col] = count;
+                    count++;
                 }
             }
         }
-
-        
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                System.out.print(arr[i][j]+" ");
+                
+        // 출력:
+        for(int row = 0; row < n; row++) {
+            for(int col = 0; col < n; col++) {
+                System.out.print(arr[row][col] + " ");
             }
             System.out.println();
         }
